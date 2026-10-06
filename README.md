@@ -40,11 +40,9 @@ RandomForestRegressor(
     n_jobs=-1
 )
 ```
-
-## 📊 Dataset
+### 📊 Dataset
 
 The notebook downloads AAPL data with:
-
 ```python
 yf.download(
     "AAPL",
@@ -53,34 +51,64 @@ yf.download(
     auto_adjust=True
 )
 ```
-
+```
 Original columns:
 
-- `Date`
-- `Open`
-- `High`
-- `Low`
-- `Close`
-- `Volume`
+Date
 
-## 🛠️ Feature Engineering
+Open
+
+High
+
+Low
+
+Close
+
+Volume
+```
+
+### 🛠️ Feature Engineering
 
 The notebook creates the following derived features:
+```
+Feature
 
-| Feature | Description |
-|---|---|
-| `Daily_Return` | Daily percentage change in closing price |
-| `MA5` | 5-day moving average |
-| `MA20` | 20-day moving average |
-| `MA50` | 50-day moving average |
-| `Price_Range` | `High - Low` |
-| `Open_Close_Diff` | `Close - Open` |
-| `Previous_Close` | Previous trading day's close |
-| `Target` | Next trading day's closing price |
+Description
+
+Daily_Return
+
+Daily percentage change in closing price
+
+MA5
+
+5-day moving average
+
+MA20
+
+20-day moving average
+
+MA50
+
+50-day moving average
+
+Price_Range
+
+High - Low
+
+Open_Close_Diff
+
+Close - Open
+
+Previous_Close
+
+Previous trading day's close
+
+Target
+```
+Next trading day's closing price
 
 Final model features:
-
-```text
+```
 Open
 High
 Low
@@ -94,71 +122,84 @@ Price_Range
 Open_Close_Diff
 Previous_Close
 ```
-
-## 🔍 Exploratory Data Analysis
+### 🔍 Exploratory Data Analysis
 
 The notebook includes:
+```
+Dataset shape and data types
 
-- Dataset shape and data types
-- Statistical summary
-- Missing-value checks
-- Closing-price trend
-- Trading-volume trend
-- Daily-return analysis
-- Daily-return distribution
-- Moving-average analysis
-- Actual vs predicted prices
-- Random Forest feature importance
-- Model comparison
+Statistical summary
 
-## 📐 Train/Test Strategy
+Missing-value checks
 
-Since the data is time ordered, the notebook uses a **chronological 80/20 train-test split** rather than a shuffled split.
+Closing-price trend
 
-- First 80% → training set
-- Last 20% → test set
+Trading-volume trend
+
+Daily-return analysis
+
+Daily-return distribution
+
+Moving-average analysis
+
+Actual vs predicted prices
+
+Random Forest feature importance
+
+Model comparison
+```
+### 📐 Train/Test Strategy
+
+Since the data is time ordered, the notebook uses a chronological 80/20 train-test split rather than a shuffled split.
+
+First 80% → training set
+
+Last 20% → test set
 
 This keeps future observations out of the training portion.
 
-## 📏 Evaluation Metrics
+### 📏 Evaluation Metrics
 
-### Mean Absolute Error (MAE)
+Mean Absolute Error (MAE)
 
 Measures the average absolute prediction error.
 
-```text
 MAE = mean(|actual - predicted|)
-```
 
-### Root Mean Squared Error (RMSE)
+Root Mean Squared Error (RMSE)
 
 Measures prediction error while giving larger errors more weight.
 
-```text
 RMSE = sqrt(mean((actual - predicted)^2))
-```
 
-### R² Score
+R² Score
 
 Measures how well the model explains variance in the target values. Higher values generally indicate a better fit on the evaluated data.
 
-## 📈 Visualizations
+### 📈 Visualizations
 
 The notebook generates:
 
-1. AAPL Closing Price
-2. AAPL Trading Volume
-3. Daily Returns
-4. Daily Return Distribution
-5. Closing Price with MA5, MA20, and MA50
-6. Linear Regression — Actual vs Predicted
-7. Random Forest — Actual vs Predicted
-8. Random Forest Feature Importance
-9. Linear Regression vs Random Forest Comparison
+AAPL Closing Price
 
-## 📁 Project Structure
+AAPL Trading Volume
 
-```text
+Daily Returns
+
+Daily Return Distribution
+
+Closing Price with MA5, MA20, and MA50
+
+Linear Regression — Actual vs Predicted
+
+Random Forest — Actual vs Predicted
+
+Random Forest Feature Importance
+
+Linear Regression vs Random Forest Comparison
+
+### 📁 Project Structure
+```
 Stock_Price_Prediction/
 │
 ├── LICENSE
@@ -166,59 +207,45 @@ Stock_Price_Prediction/
 ├── requirements.txt
 └── Stock_Price_Prediction.ipynb
 ```
-
-## ⚙️ Installation
+### ⚙️ Installation
 
 Clone the repository:
-
-```bash
+```
 git clone https://github.com/ramtanay/Stock_Price_Prediction.git
 cd Stock_Price_Prediction
 ```
-
 Create a virtual environment:
 
-### Windows
-
-```bash
+Windows
+```
 python -m venv venv
 venv\Scripts\activate
 ```
-
-### macOS / Linux
-
-```bash
+macOS / Linux
+```
 python3 -m venv venv
 source venv/bin/activate
 ```
-
 Install dependencies:
-
-```bash
+```
 pip install -r requirements.txt
 ```
-
-## ▶️ Run the Notebook
+### ▶️ Run the Notebook
 
 Start Jupyter:
 
-```bash
 jupyter notebook
-```
 
 Open:
-
-```text
+```
 Stock_Price_Prediction.ipynb
 ```
-
 Then run the cells from top to bottom.
 
-The notebook fetches AAPL market data directly through `yfinance`, so no separate dataset file is required.
+The notebook fetches AAPL market data directly through yfinance, so no separate dataset file is required.
 
-## 🔄 Project Workflow
-
-```text
+🔄 Project Workflow
+```
 Yahoo Finance
       ↓
 AAPL Historical Data
@@ -244,36 +271,44 @@ Linear Regression   Random Forest
             ↓
       Model Comparison
 ```
+### ⚠️ Important Note
 
-## ⚠️ Important Note
-
-This project is intended for **educational and experimentation purposes**.
+This project is intended for educational and experimentation purposes.
 
 Stock prices can be affected by many factors that are not included in this notebook, such as news, market sentiment, macroeconomic conditions, company events, and broader market movements.
 
-Therefore, predictions from this project should **not be treated as financial advice or guaranteed future prices**.
+Therefore, predictions from this project should not be treated as financial advice or guaranteed future prices.
 
 This implementation is a machine learning regression experiment, not a complete trading strategy.
+### 🔮 Future Improvements
+```
+Add RSI, MACD, Bollinger Bands, and other technical indicators
 
-## 🔮 Future Improvements
+Compare additional models such as XGBoost
 
-- Add RSI, MACD, Bollinger Bands, and other technical indicators
-- Compare additional models such as XGBoost
-- Use walk-forward or expanding-window validation
-- Perform hyperparameter tuning
-- Predict returns rather than raw prices
-- Add market-index and sector-level features
-- Incorporate news or sentiment features
-- Build a Streamlit dashboard
-- Save trained models with `joblib`
-- Build a real-time prediction pipeline
+Use walk-forward or expanding-window validation
 
-## 👨‍💻 Author
+Perform hyperparameter tuning
 
-**Ramtanay Chakraborty**
+Predict returns rather than raw prices
 
-GitHub: [@ramtanay](https://github.com/ramtanay)
+Add market-index and sector-level features
 
-## 📄 License
+Incorporate news or sentiment features
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+Build a Streamlit dashboard
+
+Save trained models with joblib
+
+Build a real-time prediction pipeline
+```
+
+### 👨‍💻 Author
+
+### **Ramtanay Chakraborty**
+
+GitHub: @ramtanay
+
+📄 License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
