@@ -211,7 +211,7 @@ Stock_Price_Prediction/
 
 Clone the repository:
 ```
-git clone https://github.com/ramtanay/Stock_Price_Prediction.git
+git clone https://github.com/AdhikariSouvik2003/Stock_Price_Prediction.git
 cd Stock_Price_Prediction
 ```
 Create a virtual environment:
@@ -305,9 +305,9 @@ Build a real-time prediction pipeline
 
 ### 👨‍💻 Author
 
-### **Ramtanay Chakraborty**
+### **Souvik Adhikari**
 
-GitHub: @ramtanay
+GitHub: @AdhikariSouvik2003
 
 📄 License
 
